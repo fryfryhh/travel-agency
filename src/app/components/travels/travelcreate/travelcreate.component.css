@@ -1,0 +1,30 @@
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.mat-list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mat-label {
+  min-width: 120px;
+  margin-right: 10px;
+}
+
+.mat-form-field {
+  flex: 1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}

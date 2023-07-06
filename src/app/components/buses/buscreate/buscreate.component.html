@@ -1,0 +1,37 @@
+<div [formGroup]="createFormGroup" class="form-container">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <mat-label>ID:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="ID" formControlName="id" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>Patente:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Patente" formControlName="patente" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>Cantidad de Asientos:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Cantidad de Asientos" formControlName="cantidadAsientos" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>ID del Modelo:</mat-label>
+      <mat-form-field>
+        <mat-select placeholder="ID del Modelo" formControlName="modeloId" required>
+          <mat-option *ngFor="let option of modeloOptions" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+  </mat-list>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="saveBus()">Guardar</button>
+    <button mat-stroked-button (click)="cancelEdit()">Cancelar</button>
+  </div>
+
+  <div *ngIf="createFormGroup.valid" class="error-message">Error en el formulario.</div>
+</div>

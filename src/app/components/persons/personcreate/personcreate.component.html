@@ -1,0 +1,35 @@
+<div [formGroup]="editFormGroup" class="form-container">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <mat-label>Nombre:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="name" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>Apellido:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Apellido" formControlName="lastName" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>Edad:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Edad" formControlName="age" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>ID:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="ID" formControlName="id" required>
+      </mat-form-field>
+    </mat-list-item>
+  </mat-list>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="savePerson()">Guardar</button>
+    <button mat-stroked-button (click)="cancelEdit()">Cancelar</button>
+  </div>
+
+  <div *ngIf="editFormGroup.valid" class="error-message">Error en el formulario.</div>
+</div>

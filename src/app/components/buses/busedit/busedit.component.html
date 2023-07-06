@@ -1,0 +1,39 @@
+<div [formGroup]="editFormGroup" class="form-container">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <mat-label>ID:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="ID" formControlName="id" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>Patente:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Patente" formControlName="patente" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>Cantidad de Asientos:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Cantidad de Asientos" formControlName="cantidadAsientos" required>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <mat-label>ID del Modelo:</mat-label>
+      <mat-form-field>
+        <mat-select formControlName="modeloId" placeholder="ID del Modelo" required>
+          <mat-option value="1">Chevrolet</mat-option>
+          <mat-option value="2">Nissan</mat-option>
+          <mat-option value="3">Volkswagen</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+  </mat-list>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="saveBus()">Guardar</button>
+    <button mat-stroked-button (click)="cancelEdit()">Cancelar</button>
+  </div>
+
+  <div *ngIf="!editFormGroup.valid" class="error-message">Error en el formulario.</div>
+</div>

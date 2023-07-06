@@ -1,0 +1,66 @@
+<div [formGroup]="createFormGroup" class="form-container">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <mat-label>Lugar de Salida:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Lugar de Salida" formControlName="lugarSalida" required>
+      </mat-form-field>
+    </mat-list-item>
+    
+    <mat-list-item role="listitem">
+      <mat-label>Lugar de Destino:</mat-label>
+      <mat-form-field>
+        <input matInput placeholder="Lugar de Destino" formControlName="lugarDestino" required>
+      </mat-form-field>
+    </mat-list-item>
+    
+    <mat-list-item role="listitem">
+      <mat-label>Fecha de Salida:</mat-label>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker2" placeholder="Fecha de Salida" formControlName="fechaSalida" required>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </mat-list-item>
+    
+    <mat-list-item role="listitem">
+      <mat-label>Fecha de Llegada:</mat-label>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Fecha de Llegada" formControlName="fechaLlegada" required>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </mat-list-item>
+    
+    <mat-list-item role="listitem">
+      <mat-label>Colectivo:</mat-label>
+      <mat-form-field>
+        <mat-select formControlName="idColectivo">
+          <mat-option *ngFor="let colectivo of colectivos" [value]="colectivo.id">
+            {{ colectivo.patente }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+    
+    <mat-list-item role="listitem">
+      <mat-label>Pasajero:</mat-label>
+      <mat-form-field>
+        <mat-select formControlName="personaId" multiple>
+          <mat-option *ngFor="let person of persons" [value]="person.id">
+            {{ person.nombre }} {{ person.apellido }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+  </mat-list>
+  
+  <div class="button-container">
+    <button mat-stroked-button (click)="saveTravel()">Guardar cambios</button>
+    <button mat-stroked-button (click)="cancelCreate()">Cancelar</button>
+  </div>
+  
+  <div *ngIf="createFormGroup.invalid" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>
